@@ -9,7 +9,7 @@ import axios from 'axios';
 const figmaToken='figd_7RQOFQ_3nafYmOanvT1ICmMO5jkyd6hKmTIooqjh'
 // id, name, type, scrollBehavior, children, backgroundColor, prototypeStartNodeID, flowStartingPoints, prototypeDevice}
 
-const Code = ({document}) => {
+const Code = ({document}: any) => {
 
     const router=useRouter()
     const {
@@ -19,13 +19,14 @@ const Code = ({document}) => {
     const props={value}
     const userToken=
     async()=>{
-    const response=await fetch("https://www.figma.com/api/oauth/token?client_id=jqf4nL30juMiPSpgOFQJUT&client_secret=E0mGbu9qZv8h8jHFmqrbeIOg1VktBx&redirect_uri=http://localhost:3001/Code&code=sGMIy3ZdPeVQr28h0nLVVGg2z&grant_type=authorization_code",{
+    const response=await fetch("https://www.figma.com/api/oauth/token?client_id=jqf4nL30juMiPSpgOFQJUT&client_secret=E0mGbu9qZv8h8jHFmqrbeIOg1VktBx&redirect_uri=http://localhost:3001/Code&code=rE0Pexb5SOhIbwPqhJMrlZo6w&grant_type=authorization_code",{
             method:"POST",
             body:"sGMIy3ZdPeVQr28h0nLVVGg2z"
             
         })
 
         const data= await response.json()
+        console.log(data)
         return {data}
         
     }
@@ -41,11 +42,12 @@ const Code = ({document}) => {
 
         <div>
             <p>{props.value}</p>
-            {}
+            {document[0].name}
             
         </div>
 
-        <a href='https://www.figma.com/oauth?client_id=jqf4nL30juMiPSpgOFQJUT&redirect_uri=http://localhost:3001/Code&scope=file_read&state=test&response_type=code' onClick={userToken}>Authenticate</a>
+        <a href='https://www.figma.com/oauth?client_id=jqf4nL30juMiPSpgOFQJUT&redirect_uri=http://localhost:3001/Code&scope=file_read&state=test&response_type=code' >Authenticate</a>
+        <button onClick={userToken}>Token</button>
     </>
   )
 }
