@@ -5,10 +5,8 @@ import { useState } from 'react';
 import {useRouter} from 'next/router'
 import Link from 'next/link';
 
-// FIGMA JSON properties: id, name, type, scrollBehavior, children, backgroundColor, prototypeStartNodeID, flowStartingPoints, prototypeDevice}
-
-const Code = ({document}: any) => {
-
+const Code = () => {
+    
     // Creates a router object to retrive the current URL
     const currentURL=useRouter()
 
@@ -20,6 +18,9 @@ const Code = ({document}: any) => {
 
     // Generates an input button when the "generate token" button is clicked
     const [clicked,setClicked]=useState(true)
+
+    // return JSON data in JSX form
+    const [figmaDocument,setFigmaDocument]=useState([])
 
 
 // ***************************************************************
@@ -76,8 +77,11 @@ const Code = ({document}: any) => {
     })
 
         const figmaStructure=await result.json()
-        const document=figmaStructure.document.children; 
-        console.log(figmaStructure)
+        const figmaDocument=figmaStructure.document.children;
+        console.log(figmaStructure);
+        console.log(figmaDocument);
+        setFigmaDocument(figmaDocument)
+        
 //************************************************************* 
 
 }
@@ -106,6 +110,26 @@ const Code = ({document}: any) => {
             <br></br>
             <p>token:{userAccessToken}</p>
             <button onClick={getJSON}>click to activate</button>
+
+            <div>
+                {/* <p>{figmaDocument.map((Document)=>{
+                    return(
+                        <>
+                        <div>
+                            {Document.id}
+                        </div>
+                        </>
+                    )
+                })}</p> */}
+                {figmaDocument.map((file)=>{return(
+                    <>
+                    <div key={file.id}>
+                        {file.name}</div>
+                    
+                    </>
+                    
+                )})}
+            </div>
         
         
     </>
