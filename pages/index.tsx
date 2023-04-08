@@ -23,7 +23,7 @@ export default function Home() {
 
     <div className=' font-melodrama text-white '>
         <Head>
-            <title>Featherspot:design-t0-code</title>
+            <title>Featherspot: design to code</title>
             <meta name="keywords" content="code generator,design to code"></meta>
             <meta name="description" content="design to code generator"></meta>
             <meta name="author" content="Surendhar"></meta>
