@@ -58,7 +58,7 @@ export default function Home() {
             
 
            
-            <Image style={{width:'100%', height: '100%', position:'absolute',top:'0'}}  src={mountain} alt='background' className='-z-10'
+            <Image style={{width:'100%', height: '100%', position:'absolute',top:'0'}}  src={mountain} alt='background' className='-z-10 object-cover'
     ></Image>
    
         </div>
