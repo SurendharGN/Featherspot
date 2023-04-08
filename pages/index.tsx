@@ -15,9 +15,9 @@ export default function Home() {
     
 
   return (
-    <>
-        <Link href='/Code'>Take me to the page</Link>
+    <div>
+        <Link href='/code'>Take me to the page</Link>
         
-    </>
+    </div>
   )
 }
