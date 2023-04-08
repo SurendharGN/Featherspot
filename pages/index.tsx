@@ -1,4 +1,4 @@
-
+import Head from 'next/head';
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from "next/link"
@@ -20,7 +20,15 @@ export default function Home() {
     
 
   return (
+
     <div className=' font-melodrama text-white '>
+        <Head>
+            <title>Cool Title</title>
+            <meta name="keywords" content="code generator,design to code"></meta>
+            <meta name="description" content="design to code generator"></meta>
+            <meta name="author" content="Surendhar"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        </Head>
 
         <div className='justify-center lg:w-screen'>
             <div className=''>
