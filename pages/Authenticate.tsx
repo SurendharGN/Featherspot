@@ -1,11 +1,10 @@
-// LEARN ABOUT USEROUTER HOOK
-
 import React from 'react'
 import { useState } from 'react';
-import {useRouter} from 'next/router'
+import {useRouter} from 'next/router';
 import Link from 'next/link';
 
-const Code = () => {
+
+const Authenticate = () => {
     
     // Creates a router object to retrive the current URL
     const currentURL=useRouter()
@@ -123,8 +122,7 @@ const Code = () => {
                 })}</p> */}
                 {figmaDocument.map((file)=>{return(
                     <>
-                    <div key={file.id}>
-                        {file.name}</div>
+                    
                     
                     </>
                     
@@ -135,4 +133,4 @@ const Code = () => {
     </>
     )
 }
-export default Code 
+export default Authenticate

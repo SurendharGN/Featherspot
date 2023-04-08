@@ -33,7 +33,7 @@ export default function Home() {
             <p className='text-5xl'>A Design-to-Prototype code generator</p>
 
             <div className='cursor-pointer flex justify-center items-center hoverTransition bg-white lg:w-48 lg:h-14 lg:my-14  '>
-                <button className='text-black text-2xl '>Authenticate</button>
+                <Link href='/Authenticate' className='text-black text-2xl '>Authenticate</Link>
             </div>
 
             <p className='text-xl'>*Note: Featherspot is a concept idea, it is under development.</p>
