@@ -85,12 +85,8 @@ const Authenticate = () => {
 
 }
     return (
-        <>
-            <header>
-                <h1>HTML</h1>
-                <h1>CSS</h1>
-                <h1>React</h1>
-            </header>
+        <div>
+            
 
             <main>
                 <button onClick={()=>{showInput();generateUserToken()}}>generate token</button>
@@ -130,7 +126,7 @@ const Authenticate = () => {
             </div>
         
         
-    </>
+    </div>
     )
 }
 export default Authenticate

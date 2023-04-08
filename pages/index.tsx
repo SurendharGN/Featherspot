@@ -22,27 +22,43 @@ export default function Home() {
   return (
     <div className=' font-melodrama text-white '>
 
-        <div className='  justify-center w-screen  '>
+        <div className='justify-center lg:w-screen'>
             <div className=''>
                 <Navbar/>
 
-                <div className=' w-3/4  h-px bg-white translate-y-10 translate-x-48'></div>
+                <div className='mobile:translate-x-16 w-3/4  h-px bg-white lg:translate-y-10 lg:translate-x-48'></div>
 
-            <div className='lg:flex-col lg:flex lg:justify-center lg:items-center lg:align-middle'>
-                 <h1 className='text-[14rem]'>Featherspot</h1>
-            <p className='text-5xl'>A Design-to-Prototype code generator</p>
+            <div className=' flex-col flex justify-center items-center align-middle lg:gap-10 '>
+                 <h1 className='
+                 mobile:text-[4rem] 
+                 
+                 md:text-[10rem] 
+                 
+                 lg:text-[14rem] lg:-translate-y-36 lg:absolute lg:top-[16rem] '>Featherspot</h1>
+            <p className='
+            mobile:text-xl
 
-            <div className='cursor-pointer flex justify-center items-center hoverTransition bg-white lg:w-48 lg:h-14 lg:my-14  '>
-                <Link href='/Authenticate' className='text-black text-2xl '>Authenticate</Link>
+            lg:text-5xl lg:absolute lg:top-[24rem] '>A Design-to-Prototype code generator</p>
+
+            <div className='cursor-pointer flex justify-center items-center hoverTransition bg-white 
+           
+            mobile:translate-y-24
+
+            lg:translate-y-0
+            w-48 h-14 lg:my-14 lg:absolute lg:top-[26rem]  '>
+                <Link href='/' className='text-black text-2xl '>Authenticate</Link>
             </div>
 
-            <p className='text-xl'>*Note: Featherspot is a concept idea, it is under development.</p>
+            <p className='mobile:translate-y-28
+             font-bold text-center
+
+            lg:translate-y-0 text-xl lg:absolute lg:top-[36rem] '>*Note: Featherspot is a concept idea, it is under development.</p>
             </div>
             </div>
             
 
            
-            <Image style={{width:'100%', height: '100%', position:'absolute',top:'0'}}  src={mountain} alt='background' className='bg-[#49504C] -z-10'
+            <Image style={{width:'100%', height: '100%', position:'absolute',top:'0'}}  src={mountain} alt='background' className='-z-10'
     ></Image>
    
         </div>
