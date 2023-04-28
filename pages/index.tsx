@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
 
-    <div className=' font-melodrama text-white '>
+    <div className=' font-melodrama '>
         <Head>
             <title>Featherspot: design to code</title>
             <meta name="keywords" content="code generator,design to code"></meta>
@@ -48,26 +48,20 @@ export default function Home() {
 
             lg:text-5xl lg:absolute lg:top-[24rem] '>A Design-to-Prototype code generator</p>
 
-            <div className='cursor-pointer flex justify-center items-center hoverTransition bg-white 
+            <div className='cursor-pointer flex justify-center items-center  bg-white 
            
-            mobile:translate-y-24
-
-            lg:translate-y-0
-            w-48 h-14 lg:my-14 lg:absolute lg:top-[26rem]  '>
-                <Link href='/' className='text-black text-2xl '>Authenticate</Link>
+            
+            w-48 h-14  md:absolute   '>
+                <Link href='/Authenticate' className='text-black hover:scale-x-105 hover:scale-y-105 transition ease-in-out duration-300 text-sm shadow-sm p-1 '>Authenticate</Link>
             </div>
 
-            <p className='mobile:translate-y-28
-             font-bold text-center
-
-            lg:translate-y-0 text-xl lg:absolute lg:top-[36rem] '>*Note: Featherspot is a concept idea, it is under development.</p>
+            
             </div>
             </div>
             
 
            
-            <Image style={{width:'100%', height: '100%', position:'absolute',top:'0'}}  src={mountain} alt='background' className='-z-10 object-cover'
-    ></Image>
+            
    
         </div>
         

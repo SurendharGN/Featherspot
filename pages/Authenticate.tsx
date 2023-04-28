@@ -19,7 +19,7 @@ const Authenticate = () => {
     const [clicked,setClicked]=useState(true)
 
     // return JSON data in JSX form
-    const [figmaDocument,setFigmaDocument]=useState([])
+    const [figmaDocument,setFigmaDocument]=useState('')
 
 
 // ***************************************************************
@@ -33,13 +33,13 @@ const Authenticate = () => {
         console.log(clientSecret)
 
         const response=await fetch
-        (`https://www.figma.com/api/oauth/token?client_id=${clientID}&client_secret=${clientSecret}&redirect_uri=http://localhost:3001/Code&code=${userCode}&grant_type=authorization_code`,
+        (`https://www.figma.com/api/oauth/token?client_id=${clientID}&client_secret=${clientSecret}&redirect_uri=http://localhost:3001/Authenticate&code=${userCode}&grant_type=authorization_code`,
         {
             method:"POST",
         })
 
         const data= await response.json()
-        console.log(data)
+        
         setUserAccessToken(data.access_token)
         
     }
@@ -54,7 +54,8 @@ const Authenticate = () => {
     const fileID=fileURL.split("/")[4]
 
     // Gets the current URL of the site after aunthentication
-    const userCode=currentURL.asPath.slice(11,36)
+    const userCode=currentURL.asPath.slice(19,44)
+    
 
     // Sets a random state for verification
     const userState="test"
@@ -63,8 +64,7 @@ const Authenticate = () => {
     // Gets the JSON format of the Figma file
     async function getJSON(){
 
-        console.log(fileID)
-        console.log(userAccessToken)
+        
 
         const result=await fetch
         (`https://api.figma.com/v1/files/${fileID}`,
@@ -77,52 +77,33 @@ const Authenticate = () => {
 
         const figmaStructure=await result.json()
         const figmaDocument=figmaStructure.document.children;
-        console.log(figmaStructure);
-        console.log(figmaDocument);
-        setFigmaDocument(figmaDocument)
+        const stringDocument=`"${JSON.stringify(figmaDocument)}"`
+        
+        setFigmaDocument(stringDocument)
         
 //************************************************************* 
 
 }
     return (
-        <div>
+        <div className='font-melodrama flex flex-col text-center gap-5 text-sm mt-10'>
             
 
             <main>
-                <button onClick={()=>{showInput();generateUserToken()}}>generate token</button>
+                <button onClick={()=>{showInput();generateUserToken()}} className='shadow-sm w-32 m-auto'>generate token</button>
             </main>
 
             {/* Authenticates the user */}
-            <Link href=
-            {`https://www.figma.com/oauth?client_id=jqf4nL30juMiPSpgOFQJUT&redirect_uri=http://localhost:3001/Code&scope=file_read&state=test&response_type=code`}
+            <Link className='shadow-sm w-32 m-auto' href=
+            {`https://www.figma.com/oauth?client_id=jqf4nL30juMiPSpgOFQJUT&redirect_uri=http://localhost:3001/Authenticate&scope=file_read&state=test&response_type=code`}
             >Authenticate</Link>
 
-            {clicked && <input onChange={(e)=>setFileURL(e.target.value)} placeholder='URL'/>}
-            <br></br>
-            <p>userId:{fileID}</p>
-            <br></br>
-            <p>state:{userState}</p>
-            <br></br>
-            <p>token:{userAccessToken}</p>
-            <button onClick={getJSON}>click to activate</button>
-
-            <div>
-                {/* <p>{figmaDocument.map((Document)=>{
-                    return(
-                        <>
-                        <div>
-                            {Document.id}
-                        </div>
-                        </>
-                    )
-                })}</p> */}
-                {figmaDocument.map((file)=>{return(
-                    <>
-                    
-                    
-                    </>
-                    
-                )})}
+            {clicked && <input className='outline-0 font-sans text-[8px] text-center' onChange={(e)=>setFileURL(e.target.value)} placeholder='URL'/>}
+            
+            <button className='shadow-sm w-28 m-auto' onClick={getJSON}>click to activate</button>
+            
+            <hr className='w-3/4 m-auto'></hr>
+            <div className='font-sans text-[8px] w-3/4 m-auto flex flex-col'>
+                {figmaDocument}
             </div>
         
         
